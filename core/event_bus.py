@@ -32,8 +32,9 @@ class Event:
 
 
 # Concrete event factory for typed events
-def make_event(name: str, source: str = '', **payload) -> Event:
-    return Event(name=name, payload=payload, source=source)
+def make_event(event_name: str, source: str = '', **payload) -> Event:
+    """Create an :class:`Event` while allowing ``name`` inside payload."""
+    return Event(name=event_name, payload=payload, source=source)
 
 
 # ─── Standard Event Names ───
