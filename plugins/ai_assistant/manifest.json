@@ -1,0 +1,25 @@
+{
+    "id": "ai_assistant",
+    "name": "AI-Powered Assistant",
+    "version": "0.1.0",
+    "description": "智能滤波器推荐、异常诊断、Chat-to-Signal",
+    "author": "DSP Platform",
+    "category": "ai",
+    "enabled": true,
+    "dependencies": [],
+    "service_class": "service.Service",
+    "ui_class": "ui.Panel",
+    "api_class": "api.Api",
+    "events_published": [
+        "FilterRecommended",
+        "AnomalyDetected",
+        "ChatResponse"
+    ],
+    "events_subscribed": [
+        "SignalLoaded",
+        "SpectrumComputed",
+        "ChatCommand"
+    ],
+    "ui_tab_title": "AI Assistant / 智能助手",
+    "min_python": "3.7"
+}

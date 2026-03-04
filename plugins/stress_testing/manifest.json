@@ -1,0 +1,21 @@
+{
+    "id": "stress_testing",
+    "name": "Stress Testing",
+    "version": "0.1.0",
+    "description": "算法鲁棒性/蒙特卡洛/定点化自动寻优",
+    "author": "DSP Platform",
+    "category": "stress",
+    "enabled": true,
+    "dependencies": [],
+    "service_class": "service.Service",
+    "ui_class": "ui.Panel",
+    "api_class": "api.Api",
+    "events_published": [
+        "StressTestDone"
+    ],
+    "events_subscribed": [
+        "FilterDesigned"
+    ],
+    "ui_tab_title": "Stress Test / 鲁棒性测试",
+    "min_python": "3.7"
+}

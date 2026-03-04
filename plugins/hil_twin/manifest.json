@@ -1,0 +1,24 @@
+{
+    "id": "hil_twin",
+    "name": "HIL & Digital Twin",
+    "version": "0.1.0",
+    "description": "虚拟仪器/硬件在环/资源功耗估算",
+    "author": "DSP Platform",
+    "category": "hil",
+    "enabled": true,
+    "dependencies": [],
+    "service_class": "service.Service",
+    "ui_class": "ui.Panel",
+    "api_class": "api.Api",
+    "events_published": [
+        "HilCoeffPushed",
+        "HilResponseRecv",
+        "ResourceEstimated"
+    ],
+    "events_subscribed": [
+        "FilterDesigned",
+        "PipelineApplied"
+    ],
+    "ui_tab_title": "HIL & Twin / 硬件在环",
+    "min_python": "3.7"
+}

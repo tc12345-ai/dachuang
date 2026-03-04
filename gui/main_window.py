@@ -23,6 +23,8 @@ from io_manager.file_export import FileExporter
 from io_manager.project import ProjectManager
 from core.filter_design import FilterDesigner
 from api.server import DSPApiServer
+from core.event_bus import EventBus
+from core.plugin_manager import PluginManager
 
 
 class MainWindow:
@@ -42,17 +44,25 @@ class MainWindow:
         self.project_mgr = ProjectManager()
         self.api_server = DSPApiServer()
         
+        # EventBus & Plugin system
+        self.bus = EventBus.instance()
+        self.plugin_mgr = PluginManager(self.bus)
+        
         # Set icon and style
         self._setup_styles()
         self._create_menu()
         self._create_main_layout()
         self._create_status_bar()
         
+        # Load plugins (after notebook exists)
+        self._load_plugins()
+        
         # Cleanup on close
         self.root.protocol('WM_DELETE_WINDOW', self._on_close)
         
         # Initial status
-        self._update_status("就绪 / Ready — 选择标签页开始工作")
+        n_plugins = len([p for p in self.plugin_mgr.list_plugins() if p['active']])
+        self._update_status(f"就绪 / Ready — {n_plugins} plugins loaded")
     
     def _setup_styles(self):
         """Configure ttk styles for premium look."""
@@ -179,6 +189,27 @@ class MainWindow:
                                         status_callback=self._update_status)
         self.notebook.add(self.script_panel,
                          text="  Script / 脚本引擎  ")
+    
+    def _load_plugins(self):
+        """Discover and load all plugins, add UI tabs."""
+        plugins_dir = os.path.join(
+            os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+            'plugins')
+        
+        manifests = self.plugin_mgr.discover(plugins_dir)
+        if manifests:
+            self.plugin_mgr.load_all(ctx={'status': self._update_status})
+            
+            # Create UI panels
+            panels = self.plugin_mgr.create_ui_panels(
+                self.notebook, bus=self.bus,
+                ctx={'status': self._update_status})
+            
+            for manifest, panel in panels:
+                tab_title = f"  {manifest.ui_tab_title}  "
+                self.notebook.add(panel, text=tab_title)
+            
+            print(f"[MainWindow] Loaded {len(panels)} plugin panels")
     
     def _create_verification_tab(self):
         """Create verification and comparison tab."""

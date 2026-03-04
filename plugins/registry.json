@@ -1,0 +1,37 @@
+[
+  {
+    "id": "ai_assistant",
+    "name": "AI-Powered Assistant",
+    "version": "0.1.0",
+    "installed": true,
+    "description": "Smart filter recommendation & chat"
+  },
+  {
+    "id": "hil_twin",
+    "name": "HIL & Digital Twin",
+    "version": "0.1.0",
+    "installed": true,
+    "description": "Virtual instruments & resource estimation"
+  },
+  {
+    "id": "domain_toolkits",
+    "name": "Domain Toolkits",
+    "version": "0.1.0",
+    "installed": true,
+    "description": "Vibration/BioMed/Acoustic/Comms"
+  },
+  {
+    "id": "stress_testing",
+    "name": "Stress Testing",
+    "version": "0.1.0",
+    "installed": true,
+    "description": "Monte Carlo & fixed-point sweep"
+  },
+  {
+    "id": "ux_ecosystem",
+    "name": "UX & Ecosystem",
+    "version": "0.1.0",
+    "installed": true,
+    "description": "3D spectrogram & cloud compute"
+  }
+]

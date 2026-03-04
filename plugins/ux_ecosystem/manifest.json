@@ -1,0 +1,22 @@
+{
+    "id": "ux_ecosystem",
+    "name": "UX & Ecosystem",
+    "version": "0.1.0",
+    "description": "3D时频分析/插件市场/多端联动",
+    "author": "DSP Platform",
+    "category": "ux",
+    "enabled": true,
+    "dependencies": [],
+    "service_class": "service.Service",
+    "ui_class": "ui.Panel",
+    "api_class": "api.Api",
+    "events_published": [
+        "Spectrum3DReady"
+    ],
+    "events_subscribed": [
+        "SignalLoaded",
+        "SpectrumComputed"
+    ],
+    "ui_tab_title": "3D & Ecosystem / 生态扩展",
+    "min_python": "3.7"
+}

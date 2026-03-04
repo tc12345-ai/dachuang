@@ -1,0 +1,22 @@
+{
+    "id": "domain_toolkits",
+    "name": "Domain Toolkits",
+    "version": "0.1.0",
+    "description": "振动/生医/声学/通信垂直行业套件",
+    "author": "DSP Platform",
+    "category": "domain",
+    "enabled": true,
+    "dependencies": [],
+    "service_class": "service.Service",
+    "ui_class": "ui.Panel",
+    "api_class": "api.Api",
+    "events_published": [
+        "DomainResult"
+    ],
+    "events_subscribed": [
+        "SignalLoaded",
+        "SpectrumComputed"
+    ],
+    "ui_tab_title": "Domain / 行业套件",
+    "min_python": "3.7"
+}
